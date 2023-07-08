@@ -1,0 +1,2 @@
+# IndustrialDevelopmentOfJavaScriptApplications
+Industrial development of JavaScript applications
