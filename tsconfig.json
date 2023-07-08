@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // Устанавливает каталог для разрешения неабсолютных путей для локальных модулей
+    "baseUrl": "src",
+    "paths": {
+        "@/*": ["./*"]
+    },      
+    // Транспилим в es6, бабель дотранспайлит
+    "target": "es6",
+    // Не ругаться на js файлы, нужно для плавного перехода
+    "allowJs": true,
+    // Не парсим библиотеки
+    "skipLibCheck": true,
+    // Разрешаем импорт вида -> import React from 'react'
+    "allowSyntheticDefaultImports": true,
+    // Позволяет автоматом пофиксить проблемы с импортами https://www.typescriptlang.org/tsconfig#esModuleInterop
+    "esModuleInterop": true,
+    // Включаем строгий режим, а именно свойства
+    //  (
+    //  alwaysStrict,
+    //  strictNullChecks,
+    //  strictBindCallApply,
+    //  strictFunctionTypes,
+    //  strictPropertyInitialization,
+    //  noImplicitAny,
+    //  noImplicitThis
+    // )
+    "strict": true,
+    // Тип модулей esnext нужен для корректного тришейкинга
+    "module": "esnext",
+    // Разрешение модулей (импорт без указания index.js)
+    "moduleResolution": "node",
+    // Явно указываем что каждый файл - отдельный модуль, позволяет избежать багов при использовании babel
+    "isolatedModules": true,
+    // Не транспайлим jsx, только проверяем типы, помогает решить проблему с названиями разных версий react ("react"/"react-jsx")
+    "jsx": "preserve",
+    // Добавляем возможность использования доп. интерфейсов DOM и es2018
+    "lib": [
+      "es2021",
+      "dom",
+      "dom.iterable"
+    ],
+    // Разрешаем использовать итераторы
+    "downlevelIteration": true,
+    // Разрешаем использование декораторов
+    "experimentalDecorators": true,
+    // Указываем где нужно искать типы
+    "typeRoots": [
+      "node_modules/@types",
+      "@types"
+    ],
+    // Разрешаем импорт json
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*",
+    "@types/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+  ],
+  "typeRoots": [
+    "../node_modules/@types",
+    "@types"
+  ],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs"
+    }
+  }
+}
